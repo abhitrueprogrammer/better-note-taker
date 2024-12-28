@@ -13,3 +13,11 @@ export async function POST(params: Request) {
   newNote.save();
   return NextResponse.json({ body: text }, { status: 404 });
 }
+export async function UPDATE(params: Request) {
+  await connectToDatabase();
+
+  const text = params.body;
+  const newNote = new Note(text);
+  newNote.save();
+  return NextResponse.json({ body: text }, { status: 404 });
+}
